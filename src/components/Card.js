@@ -1,18 +1,20 @@
 import React from "react";
 import location from "../images/location.png"
 
-function Card() {
+function Card(props) {
+    console.log(props.imageUrl)
     return (
         <article className="card">
-            <img className="card-img" src="https://images.unsplash.com/photo-1504963394739-cc0883df542c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="galapagos sea lion" />
+            <img className="card-img" src={props.imageUrl} alt="galapagos sea lion" />
             <div className="content">
                 <div className="location">
                     <img className="location-logo" src={location} alt="" />
-                    <p>Japan</p>
-                    <a href="google.com">View on Google Maps</a>
+                    <p>{props.location}</p>
+                    <a href={props.googleMapsUrl}>View on Google Maps</a>
                 </div>
-                <div className="date">15 Dec, 2020 - 30 Dec, 2020</div>
-                <p className="text">The Galapagos Islands are known for their fearless and curious wildlife. You can’t find another place in the world where sea lions will play with you in the water, iguanas pose for pictures, and sea birds walk right up to you.</p>
+                <h1 className="card-title">{props.title}</h1>
+                <div className="date">{props.startDate} - {props.endDate}</div>
+                <p className="text">{props.description}</p>
             </div>
         </article>
     );
